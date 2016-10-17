@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Rshrf-forum : 极简的Markdown博客,支持评论">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Rshrf-forum</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/wgrmath/rsHRF-forum">View on GitHub</a>
+
+          <h1 id="project_title">Rshrf-forum</h1>
+          <h2 id="project_tagline">极简的Markdown博客,支持评论</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/wgrmath/rsHRF-forum/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/wgrmath/rsHRF-forum/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a id="tinyblog有什么特性" class="anchor" href="#tinyblog%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E6%80%A7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TinyBlog有什么特性</h2>
+
+<ol>
+<li>完全静态,以至于没有任何生成程序</li>
+<li>支持Markdown常用语法</li>
+<li>支持Github用户添加评论</li>
+</ol>
+
+<h2>
+<a id="为什么要写-tinyblog" class="anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99-tinyblog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>为什么要写 TinyBlog</h2>
+
+<p>有时候只想简单的写一篇文章,WordPress毫无疑问过于臃肿,Jekyll需要安装,而我想要一种更简单的更新博客方式,受到开源项目<a href="https://github.com/isnowfy/simple">Simple</a>的启发,我用几个晚上的时间写了一个极简的静态博客.</p>
+
+<p>每次写文章只有一个步骤,push写好的md文章到<code>./blog</code>目录下, that's all .</p>
+
+<h2>
+<a id="tinyblog-教程" class="anchor" href="#tinyblog-%E6%95%99%E7%A8%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TinyBlog 教程</h2>
+
+<ol>
+<li><p>从<a href="https://github.com/YangHanqing/tinyblog">TinyBlog的Github主页</a>fork一份到你的仓库,更改项目名称为<code>your_name.github.io</code>,几分钟后Github会自动为你开通<a href="yanghanqing.github.io">your_name.github.io</a>的个人主页</p></li>
+<li><p>修改<code>about me.md</code>文件作为你的个人介绍,为了更快的加载速度,也可以选择写死在<code>index.html</code>中</p></li>
+<li>
+<p>写好markdown文件后,保存到<code>./blog</code>目录下,依次执行下面的语句即可.如果你不熟悉Git如何使用,请参考Github提供的相关教程.</p>
+
+<blockquote>
+<p>git add .
+git commit -m "Update blog"
+git push</p>
+</blockquote>
+</li>
+<li><p>如果修改了CNAME,记得core.js中把<code>user</code>改为自己的账户名,否则通过URL自动获取.</p></li>
+<li><p>分享文章给他人,可以通过在链接后加如下参数 <code>?title=文章名</code></p></li>
+<li><p>建议新文章发布后,评论栏留空,并点击一下提交评论按钮,这样会用你自己的账户创建issue,以后如果comment有更新,不会打扰到第一个评论的人.</p></li>
+</ol>
+
+<h2>
+<a id="迭代方向" class="anchor" href="#%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%90%91" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>迭代方向</h2>
+
+<ul>
+<li>修复未知Bug(没有做测试,也没有考虑Github通讯不佳的情况)</li>
+<li>支持响应式布局(第一次写前端,很手生)</li>
+<li>基本上整个网站有交互就有AJAX,所以需要美化和增加相应的Loading提示</li>
+<li>支持文章按发布时间排序(Github没有获取单独文件update时间的api,所有第一版没有处理,初步想法是通过 <code>001#TITLE</code>这样的命名规范来处理文章顺序)</li>
+<li>做一个支持MD语法的Chrome扩展来更新博客,不过如果做了扩展,和Jekyll也没什么区别了,再议.</li>
+<li>改成 ReactJS 驱动来练练手</li>
+</ul>
+
+<h2>
+<a id="评论功能" class="anchor" href="#%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>评论功能</h2>
+
+<p>评论这个功能我是取巧了,利用Github API在项目issues下新建comment来存储,实现了原本需要第三方插件才能完成的功能.</p>
+
+<h2>
+<a id="许可" class="anchor" href="#%E8%AE%B8%E5%8F%AF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>许可</h2>
+
+<p>MIT</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Rshrf-forum maintained by <a href="https://github.com/wgrmath">wgrmath</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
